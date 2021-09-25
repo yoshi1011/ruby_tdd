@@ -35,5 +35,14 @@ RSpec.describe "MoneyTest" do
       expect(five.times(3).amount).to eq Franc.new(15).amount
     end
 
+    describe "#equal" do
+      it "5 CHFのFrancインスタンス同士は等価である" do
+        expect(Franc.new(5).equals(Franc.new(5))).to be_truthy
+      end
+
+      it "5 CHFと6 CHFのFrancインスタンスは等価でない" do
+        expect(Franc.new(5).equals(Franc.new(6))).to be_falsey
+      end
+    end
   end
 end

@@ -1,7 +1,6 @@
-class Dollar
-  # 第4章でamountをprivate化しているが、同一クラスであれば別インスタンスの
-  # pivateフィールドにアクセスできるJavaのような仕様はないためprivate化しない
-  attr_accessor :amount
+require_relative './money'
+
+class Dollar < Money
 
   def initialize(amount)
     @amount = amount
@@ -9,10 +8,5 @@ class Dollar
 
   def times(multiplier)
     Dollar.new(@amount * multiplier)
-  end
-
-  def equals(object)
-    dollar = object
-    amount == dollar.amount
   end
 end
