@@ -3,13 +3,19 @@ class Money
   # pivateフィールドにアクセスできるJavaのような仕様はないためprivate化しない
   # また、同様の理由でprotectedも使用しない
   attr_accessor :amount
+  attr_reader   :currency
+
+  def initialize(amount, currency)
+    @amount = amount
+    @currency = currency
+  end
 
   def self.dollar(amount)
-    Dollar.new(amount)
+    Dollar.new(amount, "USD")
   end
 
   def self.franc(amount)
-    Franc.new(amount)
+    Franc.new(amount, "CHF")
   end
 
   # Rubyにはabstractオプションが存在しないため、エラーを呼ぶメソッドを定義し、

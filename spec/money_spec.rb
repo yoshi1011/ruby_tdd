@@ -29,4 +29,9 @@ RSpec.describe "MoneyTest" do
     expect(five.times(2).amount).to eq Money.franc(10).amount
     expect(five.times(3).amount).to eq Money.franc(15).amount
   end
+
+  it "test currency" do
+    expect(Money.dollar(1).currency).to eq "USD"
+    expect(Money.franc(1).currency).to eq "CHF"
+  end
 end
