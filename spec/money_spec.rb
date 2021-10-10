@@ -1,4 +1,5 @@
 require_relative '../lib/money'
+require_relative '../lib/bank'
 
 # 前のコミットまではRSpecらしい階層を作っていたが、本誌に合わせるため、
 # 階層をなくし、クラスごとにまとめていた書き方もやめて書き直した
@@ -24,5 +25,14 @@ RSpec.describe "MoneyTest" do
   it "test currency" do
     expect(Money.dollar(1).currency).to eq "USD"
     expect(Money.franc(1).currency).to eq "CHF"
+  end
+
+  it "test simple addition" do
+    five = Money.dollar(5)
+    sum = five.plus(five)
+    bank = Bank.new
+    reduced = bank.reduce(sum, "USD")
+    # RSpecのマッチャを使うべきだが、to eqでは書式同様のチェックが行えないためequalsメソッドを利用
+    Money.dollar(10).equals(reduced)
   end
 end

@@ -1,4 +1,7 @@
+require_relative './expression'
+
 class Money
+  include Expression
   # 第4章でamountをprivate化しているが、同一クラスであれば別インスタンスの
   # pivateフィールドにアクセスできるJavaのような仕様はないためprivate化しない
   # また、同様の理由でprotectedも使用しない
@@ -24,5 +27,9 @@ class Money
 
   def equals(money)
     amount == money.amount && currency == money.currency
+  end
+
+  def plus(addend)
+    Money.new(amount + addend.amount, currency)
   end
 end
