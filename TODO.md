@@ -8,9 +8,9 @@
 - nullとの等価性比較
 - 他のオブジェクトとの等価性比較
 - ~~5 CHF * 2 = 10 CHF~~
-- DollarとFrancの重複
+- ~~DollarとFrancの重複~~
 - ~~equalsの一般化~~
 - ~~timesの一般化~~
 - ~~FrancとDollarを比較する~~
 - ~~通貨の概念~~
-- testFrancMultiplicationを削除する？
+- ~~testFrancMultiplicationを削除する？~~
