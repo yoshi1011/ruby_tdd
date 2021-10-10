@@ -1,8 +1,7 @@
 require_relative './money'
 
 class Franc < Money
-
-  def times(multiplier)
-    Money.franc(@amount * multiplier)
+  def initialize(amount, currency)
+    super(amount, currency)
   end
 end

@@ -34,4 +34,8 @@ RSpec.describe "MoneyTest" do
     expect(Money.dollar(1).currency).to eq "USD"
     expect(Money.franc(1).currency).to eq "CHF"
   end
+
+  it "test different class equality" do
+    expect(Money.new(10, "CHF").equals(Franc.new(10, "CHF"))).to be_truthy
+  end
 end

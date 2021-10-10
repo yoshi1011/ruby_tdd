@@ -18,17 +18,11 @@ class Money
     Franc.new(amount, "CHF")
   end
 
-  # Rubyにはabstractオプションが存在しないため、エラーを呼ぶメソッドを定義し、
-  # オーバーライドしなければ呼び出されるように設計した
   def times(multiplier)
-    undefined_times_method
-  end
-
-  def undefined_times_method
-    raise "'times' method is not overridde."
+    Money.new(@amount * multiplier, currency)
   end
 
   def equals(money)
-    amount == money.amount && self.class == money.class
+    amount == money.amount && currency == money.currency
   end
 end
